@@ -1,11 +1,11 @@
-%ÒÏÈºËã·¨ÈıÎ¬º½¼£¹æ»®Ö÷º¯Êı
-%¿¼ÂÇÁËÀ×´ï£¬¸ß¶È´ú¼Û
+%èšç¾¤ç®—æ³•ä¸‰ç»´èˆªè¿¹è§„åˆ’ä¸»å‡½æ•°
+%è€ƒè™‘äº†é›·è¾¾ï¼Œé«˜åº¦ä»£ä»·
 clc;
 clear;
 tic;
 [Hx,Hy,Hz]=peaks(20);
-Hz=abs(Hz);%×Ô¼º°ÑÊı¾İ¸Äµô   ×î´óÖµÊÇ7.556
-figure('name','ÎŞÈË»úÈıÎ¬º½¼£¹æ»®')
+Hz=abs(Hz);%è‡ªå·±æŠŠæ•°æ®æ”¹æ‰   æœ€å¤§å€¼æ˜¯7.556
+figure('name','æ— äººæœºä¸‰ç»´èˆªè¿¹è§„åˆ’')
 % mesh(z,'EdgeColor','k');
 colormap(gray);
 surf(Hz);
@@ -14,16 +14,16 @@ hold on;
 
 Height=8; 
 Length=20;
-Width=20;  %³¤¿í¸ß£¬±íÊ¾Íø¸ñµÄ¸öÊı
+Width=20;  %é•¿å®½é«˜ï¼Œè¡¨ç¤ºç½‘æ ¼çš„ä¸ªæ•°
 
-D=G2D_3d(Height,Length,Width); %µÃµ½ÁÚ½Ó¾ØÕó
+D=G2D_3d(Height,Length,Width); %å¾—åˆ°é‚»æ¥çŸ©é˜µ
 MM=size(D,1);                    
-Tau=ones(MM,MM);        % Tau ³õÊ¼ĞÅÏ¢ËØ¾ØÕó
+Tau=ones(MM,MM);        % Tau åˆå§‹ä¿¡æ¯ç´ çŸ©é˜µ
 Tau=8.*Tau; 
-K=50;                             %µü´ú´ÎÊı£¨Ö¸ÂìÒÏ³ö¶¯¶àÉÙ²¨£©
-M=20;                              %ÂìÒÏ¸öÊı
-% S=1 ;                              %×î¶ÌÂ·¾¶µÄÆğÊ¼µã
-% E=1200;                        %×î¶ÌÂ·¾¶µÄÄ¿µÄµã
+K=50;                             %è¿­ä»£æ¬¡æ•°ï¼ˆæŒ‡èš‚èšå‡ºåŠ¨å¤šå°‘æ³¢ï¼‰
+M=20;                              %èš‚èšä¸ªæ•°
+% S=1 ;                              %æœ€çŸ­è·¯å¾„çš„èµ·å§‹ç‚¹
+% E=1200;                        %æœ€çŸ­è·¯å¾„çš„ç›®çš„ç‚¹
 Ex=20;
 Ey=20;
 Ez=Hz(Ex,Ey);
@@ -32,30 +32,30 @@ Sx=1;
 Sy=1;
 Sz=Hz(Ex,Ey);
 S=coord2num_3d(Sx,Sy,Sz,Length,Width);
-%¶¨ÒåÍşĞ²Ô´
+%å®šä¹‰å¨èƒæº
 Thread = thread_3d(Hz+0.5);
 nthread=size(Thread,1);
 hold on;
 scatter3(Thread(:,1),Thread(:,2),Thread(:,3),100,'r','filled');
 
-Alpha=1;                           % Alpha ±íÕ÷ĞÅÏ¢ËØÖØÒª³Ì¶ÈµÄ²ÎÊı
-Beta=9;                            % Beta ±íÕ÷Æô·¢Ê½Òò×ÓÖØÒª³Ì¶ÈµÄ²ÎÊı
-Rho=0.6 ;                          % Rho ĞÅÏ¢ËØÕô·¢ÏµÊı
-Q=2;                               % Q ĞÅÏ¢ËØÔö¼ÓÇ¿¶ÈÏµÊı 
-minkl=inf; 
-mink=0; 
-minl=0; 
-N=size(D,1);               %N±íÊ¾ÎÊÌâµÄ¹æÄ££¨ÏóËØ¸öÊı£©
-a=1;                     %Ğ¡·½¸ñÏóËØµÄ±ß³¤
-[Ex,Ey,Ez] = coord_3d(E,Length,Width,a);  %¼ÆËãÖÕÖ¹µãµÄ×ø±ê
-Lta=zeros(N,1);  %Â·Ïß³¤¶ÈµÄ´ú¼Û
-Tds=zeros(N,1);  %Ã¿¸öµãÃ¿¸öµãµ½ÍşĞ²Ô´µÄÍşĞ²´ú¼Û£¬Àë×î½üÍşĞ²Ô´µÄ¾àÀëµÄµ¹Êı
+Alpha=2;                           % Alpha è¡¨å¾ä¿¡æ¯ç´ é‡è¦ç¨‹åº¦çš„å‚æ•°
+Beta=5;                            % Beta è¡¨å¾å¯å‘å¼å› å­é‡è¦ç¨‹åº¦çš„å‚æ•°
+Rho=0.5 ;                          % Rho ä¿¡æ¯ç´ è’¸å‘ç³»æ•°
+Q=2;                               % Q ä¿¡æ¯ç´ å¢åŠ å¼ºåº¦ç³»æ•° 
+maxkl=-inf; 
+maxk=0; 
+maxl=0; 
+N=size(D,1);               %Nè¡¨ç¤ºé—®é¢˜çš„è§„æ¨¡ï¼ˆè±¡ç´ ä¸ªæ•°ï¼‰
+a=1;                     %å°æ–¹æ ¼è±¡ç´ çš„è¾¹é•¿
+[Ex,Ey,Ez] = coord_3d(E,Length,Width,a);  %è®¡ç®—ç»ˆæ­¢ç‚¹çš„åæ ‡
+Lta=zeros(N,1);  %è·¯çº¿é•¿åº¦çš„ä»£ä»·
+Tds=zeros(N,1);  %æ¯ä¸ªç‚¹æ¯ä¸ªç‚¹åˆ°å¨èƒæºçš„å¨èƒä»£ä»·ï¼Œç¦»æœ€è¿‘å¨èƒæºçš„è·ç¦»çš„å€’æ•°
 Hcs=zeros(N,1);
-Eta=zeros(N,1);             %Æô·¢Ê½ĞÅÏ¢£¬×ÜµÄ´ú¼Û
+Eta=zeros(N,1);             %å¯å‘å¼ä¿¡æ¯ï¼Œæ€»çš„ä»£ä»·
 for i=1:N 
      [ix,iy,iz]=coord_3d(i,Length,Width,a);
      if i~=E
-        Lta(i)=1/((ix-Ex)^2+(iy-Ey)^2+(iz-Ez)^2)^0.5;  %ÕâÀïÏàµ±ÓÚÊÇ´ú¼Ûº¯Êı£¬Ìí¼ÓÍşĞ²Ôª´ú¼ÛºÍ¸ß¶È´ú¼Û
+        Lta(i)=1/((ix-Ex)^2+(iy-Ey)^2+(iz-Ez)^2)^0.5;  %è¿™é‡Œç›¸å½“äºæ˜¯ä»£ä»·å‡½æ•°ï¼Œæ·»åŠ å¨èƒå…ƒä»£ä»·å’Œé«˜åº¦ä»£ä»·
      else
          Lta(i)=2;
      end
@@ -65,87 +65,86 @@ for i=1:N
      else
          Hcs(i)=2;
      end
-     %Eta(i)=0.6*Lta(i)+0.3*Tds(i)+0.1*1/(iz+0.1);  %·Ö±ğÊÇ¾àÀë´ú¼Û£¬
+     %Eta(i)=0.6*Lta(i)+0.3*Tds(i)+0.1*1/(iz+0.1);  %åˆ†åˆ«æ˜¯è·ç¦»ä»£ä»·ï¼Œ
 end 
 Lta=(Lta-mean(Lta))/std(Lta);
 Tds=(Tds-mean(Tds))/std(Tds);
 Hcs=(Hcs-mean(Hcs))/std(Hcs);
-Eta=0.9*Lta+0.05*Tds+0.05*Hcs;
-
+Eta=0.95*Lta+0.06*Tds+0.04*Hcs;
 Eta=(Eta-min(Eta))/(max(Eta)-min(Eta));
 
 % Tds=(Tds-min(Tds))/(max(Tds)-min(Tds));
 % Lta=(Lta-min(Lta))/(max(Lta)-min(Lta));
 % Hcs=(Hcs-min(Hcs))/(max(Hcs)-min(Hcs));
 
-ROUTES=cell(K,M);     %ÓÃÏ¸°û½á¹¹´æ´¢Ã¿Ò»´úµÄÃ¿Ò»Ö»ÂìÒÏµÄÅÀĞĞÂ·Ïß
-PL=zeros(K,M);         %ÓÃ¾ØÕó´æ´¢Ã¿Ò»´úµÄÃ¿Ò»Ö»ÂìÒÏµÄÅÀĞĞÂ·Ïß´ú¼Û
+ROUTES=cell(K,M);     %ç”¨ç»†èƒç»“æ„å­˜å‚¨æ¯ä¸€ä»£çš„æ¯ä¸€åªèš‚èšçš„çˆ¬è¡Œè·¯çº¿
+PL=zeros(K,M);         %ç”¨çŸ©é˜µå­˜å‚¨æ¯ä¸€ä»£çš„æ¯ä¸€åªèš‚èšçš„çˆ¬è¡Œè·¯çº¿ä»£ä»·
 
-for k=1:K   %KÊÇµü´úµÄ´ÎÊı
-    for m=1:M  %MÊÇÂìÒÏµÄ¸öÊı
-        W=S;                  %µ±Ç°½Úµã³õÊ¼»¯ÎªÆğÊ¼µã
-        Path=S;                %ÅÀĞĞÂ·Ïß³õÊ¼»¯
-        PLkm=0;               %ÅÀĞĞÂ·Ïß´ú¼Û³õÊ¼»¯
-        TABUkm=ones(N);       %½û¼É±í³õÊ¼»¯£¬±íÊ¾µÄÊÇÒÑ¾­×ß¹ıµÄ½Úµã
-        TABUkm(S)=0;          %ÒÑ¾­ÔÚ³õÊ¼µãÁË£¬Òò´ËÒªÅÅ³ı
-        DD=D;                 %ÁÚ½Ó¾ØÕó³õÊ¼»¯
-        %ÏÂÒ»²½¿ÉÒÔÇ°ÍùµÄ½Úµã
+for k=1:K   %Kæ˜¯è¿­ä»£çš„æ¬¡æ•°
+    for m=1:M  %Mæ˜¯èš‚èšçš„ä¸ªæ•°
+        W=S;                  %å½“å‰èŠ‚ç‚¹åˆå§‹åŒ–ä¸ºèµ·å§‹ç‚¹
+        Path=S;                %çˆ¬è¡Œè·¯çº¿åˆå§‹åŒ–
+        PLkm=0;               %çˆ¬è¡Œè·¯çº¿ä»£ä»·åˆå§‹åŒ–
+        TABUkm=ones(N);       %ç¦å¿Œè¡¨åˆå§‹åŒ–ï¼Œè¡¨ç¤ºçš„æ˜¯å·²ç»èµ°è¿‡çš„èŠ‚ç‚¹
+        TABUkm(S)=0;          %å·²ç»åœ¨åˆå§‹ç‚¹äº†ï¼Œå› æ­¤è¦æ’é™¤
+        DD=D;                 %é‚»æ¥çŸ©é˜µåˆå§‹åŒ–
+        %ä¸‹ä¸€æ­¥å¯ä»¥å‰å¾€çš„èŠ‚ç‚¹
         DW=DD(W,:); 
-        DW1=find(DW); 
+        DW1=find(DW);  %DW1æ˜¯æ‰€æœ‰éé›¶å…ƒç´ çš„ä½ç½®
         
         for j=1:length(DW1)
-            if TABUkm(DW1(j))==0  %Èç¹ûÕâ¸öµãÔÚ½û¼É±íÖĞÒÑ¾­ÓĞÁË
+            if TABUkm(DW1(j))==0  %å¦‚æœè¿™ä¸ªç‚¹åœ¨ç¦å¿Œè¡¨ä¸­å·²ç»æœ‰äº†
                 DW(DW1(j))=0;
             end
-                %ÅĞ¶Ï½Úµã¸ß¶ÈÂú×ãµØĞÎµÄÒªÇó
+                %åˆ¤æ–­èŠ‚ç‚¹é«˜åº¦æ»¡è¶³åœ°å½¢çš„è¦æ±‚
             [x,y,z]=coord_3d(DW1(j),Length,Width,a);
 
-            if z<(Hz(x+0.5,y+0.5)+0.5) %µÚ¶ş¸ö½ÚµãÑ¡ÔñÒªÂú×ã¸ß¶ÈÔ¼Êø
+            if z<(Hz(x+0.5,y+0.5)+0.5) %ç¬¬äºŒä¸ªèŠ‚ç‚¹é€‰æ‹©è¦æ»¡è¶³é«˜åº¦çº¦æŸ
                 DW(DW1(j))=0; 
             end
 
         end
-        LJD=find(DW); %¿ÉÑ¡ÔñµÄ½Úµã
-        Len_LJD=length(LJD);%¿ÉÑ¡½ÚµãµÄ¸öÊı
+        LJD=find(DW); %å¯é€‰æ‹©çš„èŠ‚ç‚¹
+        Len_LJD=length(LJD);%å¯é€‰èŠ‚ç‚¹çš„ä¸ªæ•°
         while W~=E&&Len_LJD>=1 
-            %×ªÂÖ¶Ä·¨Ñ¡ÔñÏÂÒ»²½ÔõÃ´×ß
+            %è½¬è½®èµŒæ³•é€‰æ‹©ä¸‹ä¸€æ­¥æ€ä¹ˆèµ°
             PP=zeros(Len_LJD); 
             for i=1:Len_LJD 
                 PP(i)=(Tau(W,LJD(i))^Alpha)*((Eta(LJD(i)))^Beta); 
             end 
             sumpp=sum(PP); 
-            PP=PP/sumpp;%½¨Á¢¸ÅÂÊ·Ö²¼
+            PP=PP/sumpp;%å»ºç«‹æ¦‚ç‡åˆ†å¸ƒ
             Pcum(1)=PP(1); 
             for i=2:Len_LJD 
               Pcum(i)=Pcum(i-1)+PP(i); 
             end 
             Select=find(Pcum>=rand); 
             to_visit=LJD(Select(1)); 
-            %×´Ì¬¸üĞÂºÍ¼ÇÂ¼
-            Path=[Path,to_visit];                %Â·¾¶Ôö¼Ó
-            PLkm=PLkm+Eta(to_visit);    %Â·¾¶³¤¶ÈÔö¼Ó
-            W=to_visit;                   %ÂìÒÏÒÆµ½ÏÂÒ»¸ö½Úµã
+            %çŠ¶æ€æ›´æ–°å’Œè®°å½•
+            Path=[Path,to_visit];                %è·¯å¾„å¢åŠ 
+            PLkm=PLkm+Eta(to_visit);    %è·¯å¾„é•¿åº¦å¢åŠ 
+            W=to_visit;                   %èš‚èšç§»åˆ°ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             for kk=1:N 
               if TABUkm(kk)==0 
                  DD(W,kk)=0; 
                  DD(kk,W)=0; 
               end 
             end 
-            TABUkm(W)=0;                %ÒÑ·ÃÎÊ¹ıµÄ½Úµã´Ó½û¼É±íÖĞÉ¾³ı
+            TABUkm(W)=0;                %å·²è®¿é—®è¿‡çš„èŠ‚ç‚¹ä»ç¦å¿Œè¡¨ä¸­åˆ é™¤
             DW=DD(W,:); 
             DW1=find(DW); 
-            for j=1:length(DW1)     %ÕâÒÑ¾­ÊÇ´ÓµÚÈı¸ö½Úµã¿ªÊ¼ÁË¡£
+            for j=1:length(DW1)     %è¿™å·²ç»æ˜¯ä»ç¬¬ä¸‰ä¸ªèŠ‚ç‚¹å¼€å§‹äº†ã€‚
                 if TABUkm(DW1(j))==0 
                    DW(DW1(j))=0; 
                 end 
-                %ÅĞ¶Ï½Úµã¸ß¶ÈÂú×ãµØĞÎµÄÒªÇó
+                %åˆ¤æ–­èŠ‚ç‚¹é«˜åº¦æ»¡è¶³åœ°å½¢çš„è¦æ±‚
                 [x,y,z]=coord_3d(DW1(j),Length,Width,a);
                 
-                if z<(Hz(x+0.5,y+0.5)+0.5) %¿¼ÂÇµ½ÀëÉ¢»¯ºóµÄÎó²î£¬ÁôÓĞÒ»¶¨µÄÔ£¶È
+                if z<(Hz(x+0.5,y+0.5)+0.5) %è€ƒè™‘åˆ°ç¦»æ•£åŒ–åçš„è¯¯å·®ï¼Œç•™æœ‰ä¸€å®šçš„è£•åº¦
                     DW(DW1(j))=0; 
                 end
                 
-                %ÅĞ¶ÏÅÀÉı½ÇºÍÆ«º½½ÇÊÇ·ñÂú×ãµØĞÎÒªÇó
+                %åˆ¤æ–­çˆ¬å‡è§’å’Œåèˆªè§’æ˜¯å¦æ»¡è¶³åœ°å½¢è¦æ±‚
                 yaw=climb_yaw_3d(DW1(j),Path,Length,Width,a);
                 if yaw<pi/2
                     DW(DW1(j))=0; 
@@ -153,51 +152,51 @@ for k=1:K   %KÊÇµü´úµÄ´ÎÊı
                 
             end 
             LJD=find(DW); 
-            Len_LJD=length(LJD);%¿ÉÑ¡½ÚµãµÄ¸öÊı
+            Len_LJD=length(LJD);%å¯é€‰èŠ‚ç‚¹çš„ä¸ªæ•°
         end
          ROUTES{k,m}=Path; 
          if Path(end)==E 
             PL(k,m)=PLkm; 
-            if PLkm<minkl 
-                mink=k;minl=m;minkl=PLkm; 
+            if PLkm>maxkl 
+                maxk=k;maxl=m;maxkl=PLkm; 
             end 
          else 
             PL(k,m)=0; 
          end    
     end
-    %¸üĞÂĞÅÏ¢ËØ
-    Delta_Tau=zeros(N,N);%¸üĞÂÁ¿³õÊ¼»¯
+    %æ›´æ–°ä¿¡æ¯ç´ 
+    Delta_Tau=zeros(N,N);%æ›´æ–°é‡åˆå§‹åŒ–
        for m=1:M 
          if PL(k,m)  
             ROUT=ROUTES{k,m}; 
-            TS=length(ROUT)-1;%ÌøÊı
+            TS=length(ROUT)-1;%è·³æ•°
              PL_km=PL(k,m); 
             for s=1:TS 
               x=ROUT(s); 
               y=ROUT(s+1); 
-              Delta_Tau(x,y)=Delta_Tau(x,y)+Q/PL_km; 
-              Delta_Tau(y,x)=Delta_Tau(y,x)+Q/PL_km; 
+              Delta_Tau(x,y)=Delta_Tau(x,y)+Q*PL_km; 
+              Delta_Tau(y,x)=Delta_Tau(y,x)+Q*PL_km; 
             end 
          end 
       end 
-    Tau=(1-Rho).*Tau+Delta_Tau;%ĞÅÏ¢ËØ»Ó·¢Ò»²¿·Ö£¬ĞÂÔö¼ÓÒ»²¿·Ö
+    Tau=(1-Rho).*Tau+Delta_Tau;%ä¿¡æ¯ç´ æŒ¥å‘ä¸€éƒ¨åˆ†ï¼Œæ–°å¢åŠ ä¸€éƒ¨åˆ†
 end
 
 
-%»æÍ¼
+%ç»˜å›¾
 
 
-if mink==0
-    print('ÎŞ·¨ÕÒµ½Âú×ãÔ¼ÊøµÄÂ·¾¶£¬ÇëÖØĞÂÊäÈëÖÕÖ¹µã');
+if maxk==0
+    print('æ— æ³•æ‰¾åˆ°æ»¡è¶³çº¦æŸçš„è·¯å¾„ï¼Œè¯·é‡æ–°è¾“å…¥ç»ˆæ­¢ç‚¹');
     plotif=0;
 else
-    plotif=1;%ÊÇ·ñ»æÍ¼µÄ¿ØÖÆ²ÎÊı
+    plotif=1;%æ˜¯å¦ç»˜å›¾çš„æ§åˆ¶å‚æ•°
 end
-if plotif==1 %»æÊÕÁ²ÇúÏß
-    title('º½¼£¹æ»®demo'); 
-    xlabel('×ø±êx'); 
-    ylabel('×ø±êy');
-    ROUT=ROUTES{mink,minl}; 
+if plotif==1 %ç»˜æ”¶æ•›æ›²çº¿
+    title('èˆªè¿¹è§„åˆ’demo'); 
+    xlabel('åæ ‡x'); 
+    ylabel('åæ ‡y');
+    ROUT=ROUTES{maxk,maxl}; 
     LENROUT=length(ROUT); 
     Rx=ROUT; 
     Ry=ROUT; 
@@ -206,20 +205,24 @@ if plotif==1 %»æÊÕÁ²ÇúÏß
         [Rx(ii),Ry(ii),Rz(ii)]=coord_3d(ROUT(ii),Length,Width,a);
     end 
     plot3(Rx,Ry,Rz);
-    minPL=zeros(K); 
+    maxPL=zeros(K); 
    for i=1:K 
      PLK=PL(i,:); 
      Nonzero=find(PLK); 
      PLKPLK=PLK(Nonzero); 
-     minPL(i)=min(PLKPLK); 
+     maxPL(i)=max(PLKPLK); 
    end 
+   
    figure(2) 
-   plot(minPL); 
+   plot(maxPL); 
    hold on 
    grid on 
-   title('ÊÕÁ²ÇúÏß±ä»¯Ç÷ÊÆ'); 
-   xlabel('µü´ú´ÎÊı'); 
-   ylabel('×îĞ¡Â·¾¶³¤¶È'); %»æÅÀĞĞÍ¼
+   title('æ”¶æ•›æ›²çº¿å˜åŒ–è¶‹åŠ¿'); 
+   xlabel('è¿­ä»£æ¬¡æ•°'); 
+   ylabel('æœ€å°è·¯å¾„é•¿åº¦'); %ç»˜çˆ¬è¡Œå›¾
 end 
 toc;
+
+
+
 
