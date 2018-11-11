@@ -70,7 +70,8 @@ end
 Lta=(Lta-mean(Lta))/std(Lta);
 Tds=(Tds-mean(Tds))/std(Tds);
 Hcs=(Hcs-mean(Hcs))/std(Hcs);
-Eta=0.95*Lta+0.06*Tds+0.04*Hcs;
+%Eta=0.95*Lta+0.06*Tds+0.04*Hcs;
+Eta=Lta;
 Eta=(Eta-min(Eta))/(max(Eta)-min(Eta));
 
 % Tds=(Tds-min(Tds))/(max(Tds)-min(Tds));
@@ -102,7 +103,6 @@ for k=1:K   %K是迭代的次数
             if z<(Hz(x+0.5,y+0.5)+0.5) %第二个节点选择要满足高度约束
                 DW(DW1(j))=0; 
             end
-
         end
         LJD=find(DW); %可选择的节点
         Len_LJD=length(LJD);%可选节点的个数
@@ -138,8 +138,7 @@ for k=1:K   %K是迭代的次数
                    DW(DW1(j))=0; 
                 end 
                 %判断节点高度满足地形的要求
-                [x,y,z]=coord_3d(DW1(j),Length,Width,a);
-                
+                [x,y,z]=coord_3d(DW1(j),Length,Width,a);                
                 if z<(Hz(x+0.5,y+0.5)+0.5) %考虑到离散化后的误差，留有一定的裕度
                     DW(DW1(j))=0; 
                 end
@@ -210,7 +209,7 @@ if plotif==1 %绘收敛曲线
      PLK=PL(i,:); 
      Nonzero=find(PLK); 
      PLKPLK=PLK(Nonzero); 
-     maxPL(i)=max(PLKPLK); 
+     maxPL(i)=min(PLKPLK); 
    end 
    
    figure(2) 
